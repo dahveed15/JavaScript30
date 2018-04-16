@@ -64,6 +64,8 @@
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
     if (!audio) return; //stop function from running if one of the keys pressed is not one to trigger audio
+
+    audio.play();
   });
 </script>
 
