@@ -65,7 +65,13 @@
 
     if (!audio) return; //stop function from running if one of the keys pressed is not one to trigger audio
 
+    //rewind to the start of the track
+    //This way you can hit the key multiple times without having to wait for the whole sound to play
+    audio.currentTime = 0;
+    
     audio.play();
+
+
   });
 </script>
 
