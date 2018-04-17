@@ -82,10 +82,13 @@
       const now = new Date();
 
       const seconds = now.getSeconds();
-      const secondsDegrees = (seconds / 60) * 360;
+
+      //we need to add 90 after converting the seconds to degrees to fix the offset of the transform in the .hand class
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
 
       //rotate the clock by this many degrees every second
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+      console.log(seconds);
     }
 
     setInterval(setDate, 1000)
