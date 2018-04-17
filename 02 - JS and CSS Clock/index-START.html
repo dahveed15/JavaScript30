@@ -66,13 +66,29 @@
 
       /* rotate can to default at 12 pm (I think) */
       transform: rotate(90deg);
+
+      /* I think the cubic-bezier thing makes the tick effect look more like a clock */
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
   </style>
 
   <script>
 
+    const secondHand = document.querySelector('.second-hand');
 
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = (seconds / 60) * 360;
+
+      //rotate the clock by this many degrees every second
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+    }
+
+    setInterval(setDate, 1000)
   </script>
 </body>
 </html>
