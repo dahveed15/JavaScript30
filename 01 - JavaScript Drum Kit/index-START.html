@@ -58,7 +58,8 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  window.addEventListener('keydown', function(e) {
+
+  function playSound(e) {
     //I believe data-key is a custom data attribute the instructor made (I think)
     //the query selector is basically saying play the sound associated with that key code
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -78,7 +79,7 @@
     key.classList.add('playing');
 
 
-  });
+  }
 
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return; //skip if it's not a transform
@@ -90,6 +91,8 @@
   const keys = document.querySelectorAll('.key');
 
   keys.forEach(key => key.addEventListener('transitionend', removeTransition))
+
+  window.addEventListener('keydown', playSound);
 </script>
 
 
