@@ -63,16 +63,33 @@
     //the query selector is basically saying play the sound associated with that key code
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
+    //use the .key styling to give the yellow border for each key when pressed
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
     if (!audio) return; //stop function from running if one of the keys pressed is not one to trigger audio
 
     //rewind to the start of the track
     //This way you can hit the key multiple times without having to wait for the whole sound to play
     audio.currentTime = 0;
-    
+
     audio.play();
+
+    //add the styling from the playing class to give the yellow border
+    key.classList.add('playing');
 
 
   });
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; //skip if it's not a transform
+
+    //this refers to each key being pressed in the forEach loop
+    this.classList.remove('playing')
+  }
+
+  const keys = document.querySelectorAll('.key');
+
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition))
 </script>
 
 
