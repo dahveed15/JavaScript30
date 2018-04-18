@@ -70,6 +70,7 @@
 
     //look for the change on each input and call the handleUpdate method on it (updating stuff when using scroll bar)
     inputs.forEach(input => input.addEventListener('change', handleUpdate))
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
   </script>
 
 </body>
