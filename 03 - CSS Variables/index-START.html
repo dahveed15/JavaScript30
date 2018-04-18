@@ -68,6 +68,9 @@
       //referring to the data-sizing attribute
       // we need the '' to avoid appending undefined
       const suffix = this.dataset.sizing || '';
+
+      //updates all of the css variables
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
 
     //look for the change on each input and call the handleUpdate method on it (updating stuff when using scroll bar)
