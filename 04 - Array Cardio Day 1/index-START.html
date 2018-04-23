@@ -66,6 +66,12 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    people.sort(function(a,b) {
+      let initialPerson = a.split(', ')[1];
+      let nextPerson = b.split(', ')[1];
+
+      return initialPerson > nextPerson ? 1 : -1;
+    });
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
